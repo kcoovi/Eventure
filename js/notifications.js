@@ -32,10 +32,18 @@ class NotificationManager {
     localStorage.setItem("notifications", JSON.stringify(this.notifications));
   }
 
+  addNewEventNotification(eventName, userId) {
+    this.addNotification({
+      userId,
+      message: `New event "${eventName}" has been created.`,
+      read: false,
+    });
+  }
+
   addRSVPNotification(eventName, status, userId) {
     this.addNotification({
       userId,
-      message: `You have RSVP'd ${status} to ${eventName}.`,
+      message: `You have RSVP'd ${status} to "${eventName}".`,
       read: false,
     });
   }
@@ -43,12 +51,12 @@ class NotificationManager {
   addEventChangeNotification(eventName, changes, userId) {
     let message;
     if (changes.length === 1) {
-      message = `The ${changes[0]} for ${eventName} has changed.`;
+      message = `The ${changes[0]} for "${eventName}" has changed.`;
     } else if (changes.length > 1) {
       const lastChange = changes.pop();
       message = `The ${changes.join(
         ", "
-      )} and ${lastChange} for ${eventName} have changed.`;
+      )} and ${lastChange} for "${eventName}" have changed.`;
     }
     this.addNotification({
       userId,
