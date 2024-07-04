@@ -162,6 +162,10 @@ class EventPlatform {
       creator: auth.getCurrentUserId(),
     };
     eventManager.createEvent(newEvent);
+    notificationManager.addNewEventNotification(
+      newEvent.name,
+      auth.getCurrentUserId()
+    );
     this.showMyEvents();
   }
 
@@ -283,7 +287,8 @@ class EventPlatform {
     if (changes.length > 0) {
       notificationManager.addEventChangeNotification(
         updatedEvent.name,
-        changes
+        changes,
+        auth.getCurrentUserId()
       );
     }
     this.showMyEvents();
@@ -300,7 +305,7 @@ class EventPlatform {
     const userId = auth.getCurrentUserId();
     eventManager.rsvpToEvent(eventId, userId, status);
     const event = eventManager.getEvent(eventId);
-    notificationManager.addRSVPNotification(event.name, status);
+    notificationManager.addRSVPNotification(event.name, status, userId);
     this.showEventDetails(eventId);
   }
 
