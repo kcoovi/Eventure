@@ -6,6 +6,8 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: black;
+  color: #fff;
 }
 
 header {
@@ -42,7 +44,7 @@ header {
 .nav-menu button {
   margin: 0 5px;
   background: #4caf50;
-  border: 1px solid white;
+  border: none;
   color: white;
   padding: 5px 10px;
   cursor: pointer;
@@ -50,7 +52,7 @@ header {
 }
 
 .nav-menu button:hover {
-  background-color: #45a049;
+  background-color: #45a049; /* Darker green for hover effect */
 }
 
 main {
@@ -123,6 +125,7 @@ footer {
   align-items: center;
   width: 100%;
   max-width: 600px;
+  position: relative; /* Ensure QR code can be positioned relative to this container */
 }
 
 .event-info {
@@ -130,47 +133,13 @@ footer {
 }
 
 #qrcode {
-  margin-top: 2rem;
+  position: absolute;
+  top: 1rem; /* Position at top right for desktop */
+  right: 1rem; /* Position at top right for desktop */
+  margin: 0;
 }
 
-.welcome-message,
-h2,
-h3 {
-  text-align: center;
-  width: 100%;
-  max-width: 600px;
-}
-
-.no-events-message,
-.no-notifications-message {
-  text-align: center;
-  font-style: italic;
-  color: #666;
-  width: 100%;
-  max-width: 600px;
-}
-
-.auth-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  max-width: 300px;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-  width: 100%;
-  max-width: 600px;
-}
-
-li {
-  margin-bottom: 1rem;
-}
-
+/* Media query for mobile view */
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex;
@@ -195,8 +164,9 @@ li {
     margin: 5px 0;
     width: 100%;
     text-align: left;
-    background: transparent;
-    border: none;
+    background: transparent; /* Remove green background in mobile view */
+    border: none; /* Remove border in mobile view */
+    color: white; /* Ensure text is visible */
   }
 
   main {
@@ -204,17 +174,43 @@ li {
   }
 
   .event-details {
-    flex-direction: column;
+    padding-top: 1rem; /* Adjust padding for mobile view */
   }
 
   #qrcode {
-    margin-left: 0;
+    position: static;
     margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: auto;
+    align-self: center;
+  }
+
+  .notifications-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .clear-notifications-button {
+    margin-top: auto;
+    margin-bottom: 1rem;
   }
 }
 
+/* Media query for desktop view */
 @media (min-width: 769px) {
   .nav-menu button {
+    background: #4caf50;
     border: none;
+    color: white;
+  }
+
+  .nav-menu button:hover {
+    background-color: #45a049;
+  }
+
+  #qrcode {
+    transform: scale(0.8);
   }
 }
