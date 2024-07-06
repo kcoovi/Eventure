@@ -32,6 +32,19 @@ class EventPlatform {
     menuToggle.addEventListener("click", () => {
       navMenu.classList.toggle("active");
     });
+
+    // Add event listeners to all nav menu buttons
+    const navButtons = navMenu.querySelectorAll("button");
+    navButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        this.closeMenu();
+      });
+    });
+  }
+
+  closeMenu() {
+    const navMenu = document.getElementById("nav-menu");
+    navMenu.classList.remove("active");
   }
 
   renderMainContent() {
