@@ -47,5 +47,5 @@ Eventure is a full-featured web application where users can:
 * Navigate to the folder
 `cd Eventure`
 
-* Run 
-Open the index.html in the browser or click [here](https://kcoovi.github.io/Eventure/)
+## Run 
+Open the `index.html` in the browser or click [here](https://kcoovi.github.io/Eventure/)
