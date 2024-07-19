@@ -1,4 +1,4 @@
-# Eventure
+# Eventure - Plan Your Next Adventure
 
 Eventure is an event planning platform designed to help users create, manage, and RSVP to events with ease. This application provides features such as event creation and editing, RSVP tracking, notifications, and interactive maps for event locations.
 
